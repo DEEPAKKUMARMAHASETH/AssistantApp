@@ -1,7 +1,7 @@
 const Contact = () => {
     return (
         <div class="container" style={{backgroundColor:"#b9bebd", marginTop:"40px" ,marginBottom:"40px"}}>
-            <h1 className="font-weight-bold text-center ">FormSubmit Demo</h1>
+            <h1 className="font-weight-bold text-center ">CONTACT US</h1>
             <form  action="https://formsubmit.co/el/difiwa" method="POST">
                 <div class="form-group">
                     <div class="form-row">

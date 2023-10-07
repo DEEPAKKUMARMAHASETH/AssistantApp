@@ -1,13 +1,11 @@
 import './App.css';
-import Navbar from './Components/Navbar/Navbar';
-import Herosection from './Components/HeroSection/Herosection';
+import AllRoutes from './Components/AllRoutes/AllRoutes';
 
 function App() {
   return (
-   <div>
-    <Navbar/>
-    <Herosection/>
-   </div>
+    <div>
+     <AllRoutes/>
+    </div>
   );
 }
 

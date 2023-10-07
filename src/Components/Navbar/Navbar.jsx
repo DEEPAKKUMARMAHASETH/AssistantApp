@@ -1,32 +1,35 @@
 import { useState } from "react";
-import Button from "../Button/Button";
 import styled from "styled-components";
 import { AiOutlineBars } from 'react-icons/ai'
 import { AiOutlineClose } from 'react-icons/ai'
-import SearchBox from "../SearchBox/SearchBox";
-const Navbar = () => {
-  const [isActive, setIsActive] = useState(false);
+import { Link } from "react-router-dom";
 
+const Navbar = () => {
+  const AllLinks = [
+    { path: "/", title: "Home" },
+    { path: "/about", title: "About" },
+    { path: "/Contact", title: "Contact" }
+  ]
+
+  const [isActive, setIsActive] = useState(false);
   const toggle = () => {
     setIsActive(!isActive);
   };
   return (
     <Container>
-      <div className="logo"><h1>LOGO</h1></div>
+      <div className="logo">
+      <Link  className="link" to={AllLinks[0].path}>OLY</Link>
+      </div>
       <div className={`menu_list ${isActive ? 'active' : ''}`}>
-        <ul className="list active">
-          <li href="#">Home</li>
-          <li href="#">About</li>
-          <li href="#">Service</li>
-          <li href="#">Contact</li>
-        </ul>
+      <div className="list active">
+        {
+          AllLinks.map((item) => (
+            <div key={item.path}>
+              <Link className="link" to={item.path} > {item.title}</Link>
+            </div>
+          ))
+        }
       </div>
-      <div className="search_box">
-        <SearchBox />
-      </div>
-      <div className="register">
-        <Button onclick={() => { }} text="Login" />
-        <Button onclick={() => { }} text="Signup" />
       </div>
       <div className="icon">
         <AiOutlineBars className={isActive?"close":"open"} onClick={toggle} />
@@ -47,26 +50,23 @@ const Container = styled.div`
   position: relative;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   .logo{
-    font-size: 12px;
+    font-size: 30px;
+    font-weight: 600;
   }
-  ul li{
+  .link{
+    text-decoration: none;
+    color: #232D3F;
+  }
+  .list Link{
     list-style: none;
   };
-  .menu_list ul{
+  .menu_list .list{
     font-weight: 500;
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 16px;
     width: 100%;
-  }
-  .register Button{
-   display: block;
-  }
-  .register{
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
   }
   .icon{
     font-size: 24px;
@@ -81,7 +81,7 @@ const Container = styled.div`
     .close{
       display: none;
     }
-    .menu_list ul{
+    .menu_list .list{
       position: absolute;
       display: flex;
       justify-content: space-around;
@@ -96,9 +96,9 @@ const Container = styled.div`
       visibility: hidden;
       transform: translateX(100%);
       box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-      transition: all 0.5s linear;
+      transition: all 0.3s linear;
   }
-  .menu_list.active ul{
+  .menu_list.active .list{
       opacity: 1;
       pointer-events: auto;
       visibility: visible;

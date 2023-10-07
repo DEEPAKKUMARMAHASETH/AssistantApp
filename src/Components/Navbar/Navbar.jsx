@@ -87,9 +87,9 @@ const Container = styled.div`
       justify-content: space-around;
       flex-direction: column;
       top: 50px;
-      width: 100px;
+      width: 140px;
       height: 200px;
-      align-items: flex-start;
+      align-items: center;
       right: 0;
       opacity: 1;
       pointer-events: none;
@@ -97,6 +97,7 @@ const Container = styled.div`
       transform: translateX(100%);
       box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
       transition: all 0.3s linear;
+      background-color: #232D3F;
   }
   .menu_list.active .list{
       opacity: 1;
@@ -104,6 +105,9 @@ const Container = styled.div`
       visibility: visible;
       transform: translateX(0);
   }
+    .link{
+      color: white;
+    }
 
   }
 `;
